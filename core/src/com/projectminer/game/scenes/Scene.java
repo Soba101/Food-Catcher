@@ -1,0 +1,1 @@
+//Base class or interface for scenes
