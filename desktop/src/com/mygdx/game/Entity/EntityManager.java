@@ -41,14 +41,14 @@ public class EntityManager {
         entityMap.put("bucket", bucket);
         entityMap.put("mouse", mouse);
 
-        // Randomly generating and adding 'droplet' entities to the list.
+        // Randomly generating and adding 'gold' entities to the list.
         Random random = new Random();
         for (int i = 0; i < 6; i++) {
             int xPos = random.nextInt(600);
             int yPos = random.nextInt(300);
-            TexturedObject droplet = new TexturedObject("droplet.png", xPos, yPos, 50, 50, 0, false);
-            droplet.setTag("droplet"); // Set tag to identify as droplet
-            entityList.add(droplet);
+            TexturedObject gold = new TexturedObject("gold.png", xPos, yPos, 50, 50, 0, false);
+            gold.setTag("gold"); // Set tag to identify as gold
+            entityList.add(gold);
         }
     }
     

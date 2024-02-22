@@ -18,7 +18,7 @@ public class IOManager{
     // Static initializer block to load resources when the class is first used.
     static {
         // Loading sounds with their respective file names.
-        loadSound("collect", "collect.wav"); // Sound for collecting a droplet.
+        loadSound("collect", "collect.wav"); // Sound for collecting a gold.
         loadSound("collision", "collision.wav"); // Sound for colliding with the mouse.
 
         // Loading background music.

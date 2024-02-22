@@ -4,9 +4,9 @@ package com.mygdx.game.Entity;
  * The CollisionManager class is responsible for managing collisions between
  * entities in the game.
  * It checks for collisions between the bucket and other entities, such as the
- * mouse and droplets.
+ * mouse and golds.
  * It also handles the logic for playing sound effects, removing collected
- * droplets, and determining the game state.
+ * golds, and determining the game state.
  */
 public class CollisionManager {
     private EntityManager entityManager;
@@ -26,7 +26,7 @@ public class CollisionManager {
     public GameState checkCollisions() {
         Entity bucket = entityManager.getEntity("bucket");
         Entity mouse = entityManager.getEntity("mouse");
-        boolean allDropletsCollected = true; // Start with the assumption that all are collected
+        boolean allgoldsCollected = true; // Start with the assumption that all are collected
 
         if (bucket == null) {
             return GameState.CONTINUE; // Or consider a CRITICAL_ERROR GameState
@@ -39,21 +39,21 @@ public class CollisionManager {
             return GameState.LOSE_MOUSE;
         }
 
-        // Check collision with droplets
+        // Check collision with golds
         for (Entity entity : entityManager.getAllEntities()) {
-            if (entity.hasTag("droplet")) {
-                allDropletsCollected = false; // There's still at least one droplet
+            if (entity.hasTag("gold")) {
+                allgoldsCollected = false; // There's still at least one gold
                 if (isCollision(bucket, entity)) {
-                    IOManager.playSound("collect", 0.4f); // Play droplet collection sound effect
-                    System.out.println("Droplet Collected!");
-                    entityManager.removeEntity(entity); // Remove collected droplet
+                    IOManager.playSound("collect", 0.4f); // Play gold collection sound effect
+                    System.out.println("gold Collected!");
+                    entityManager.removeEntity(entity); // Remove collected gold
                     break; // Assuming one collection per update
                 }
             }
         }
 
-        if (allDropletsCollected) {
-            System.out.println("Player wins! All droplets collected.");
+        if (allgoldsCollected) {
+            System.out.println("Player wins! All golds collected.");
             return GameState.WIN;
         }
 
