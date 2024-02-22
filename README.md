@@ -1,50 +1,55 @@
-# Project-Miner
+# Project Miner - Java/LibGDX Edition
 
 ## Introduction
+"Project Miner" is a Java/LibGDX implementation of the classic Gold Miner game. This project aims to recreate the enjoyable and challenging aspects of the original game, leveraging the robust features of Java and the LibGDX framework to enhance gameplay experience and graphics.
 
-Welcome to the Java/LibGDX edition of Gold Miner Classic: Gold Rush. This project is a recreation of the popular game using Java programming language and the LibGDX framework. Our aim is to replicate the fun and challenging experience of the original game while leveraging the versatility and performance of Java and LibGDX.
+## Project Structure
+The project is organized into several key classes, each serving a specific function in the game's overall architecture:
+
+- **`iMovable`**: Interface defining movement-related methods.
+- **`IOManager`**: Handles input and output operations.
+- **`SceneManager`**: Manages various scenes within the game, like start, game, and end scenes.
+- **`Entity`**: Represents entities within the game.
+- **`AIControlManager`**: Manages AI behavior and interactions.
+- **`PlayerControlManager`**: Handles player controls and interactions.
+- **`TexturedObject`**: Deals with textured objects in the game environment.
+- **`MyGdxGame`**: The main class that initializes and runs the game loop.
+- **`CollisionManager`**: Manages collision detection and responses.
+- **`DesktopLauncher`**: Entry point for launching the game on desktop platforms.
+- **`GameScene`**: Represents the main gameplay scene.
+- **`StartScene`, `EndScene`, `EndScene2`**: Manage different stages of the game, like beginning and ending.
+- **`GameState`**: Manages the state of the game.
+- **`GameMaster`**: Central control for game logic and flow.
+- **`Scene`**: Base class for different scenes in the game.
+- **`EntityManager`**: Handles the entities within the game's scenes.
 
 ## Features
-
-- **Classic Gameplay:** Enjoy the beloved mechanics of the original Gold Miner game, including hook shooting, collecting gold, and avoiding obstacles.
-- **Enhanced Graphics:** Utilizing LibGDX's powerful rendering capabilities to bring a fresh look to the classic game design.
-- **Cross-Platform Support:** Thanks to LibGDX, this game can run on various platforms including desktop and mobile devices.
+- **Classic Gold Miner Gameplay**: Engage in the time-tested gameplay of collecting gold and gems while avoiding obstacles.
+- **Enhanced Graphics**: Experience the classic game with improved graphics powered by LibGDX.
+- **Cross-Platform Play**: Play on various platforms, thanks to the flexibility of LibGDX.
+- **Dynamic Scenes and Entities**: Navigate through different game scenes and interact with various game entities.
 
 ## How to Play
-
-- **Objective:** Collect as much gold and precious minerals as possible within the time limit.
-- **Controls:** Use the arrow keys to control the hook and grab gold and gems.
-- **Levels:** The game features multiple levels, each with increasing difficulty and different layouts.
+- **Objective**: Gather as much gold and precious minerals as possible within a time limit.
+- **Controls**: Use arrow keys to control the bucet and collect treasures.
+- **Progress through Levels**: Encounter increasing difficulty and varied layouts in multiple levels.
 
 ## Installation
+To install and run "Project Miner," follow these steps:
 
-To run this game, you need to have Java installed on your machine. Follow these steps to install and play:
+1. Clone the repository: `git clone [repository-url]`.
+2. Navigate to the project directory: `cd Project-Miner`.
+3. Build the project using your Java IDE or build tools.
+4. Run the game, typically through the `DesktopLauncher` class.
 
-1. **Clone the Repository:** `git clone [repository-url]`
-2. **Navigate to the Project Directory:** `cd GoldMiner-Classic`
-3. **Build the Project:** `[instructions specific to your build setup]`
-4. **Run the Game:** `[instructions specific to running the game]`
+## Technologies
+- **Java**: Primary programming language for game logic and mechanics.
+- **LibGDX**: Used for graphical rendering, input handling, and cross-platform support.
 
-## Technologies Used
+## Contribution
+Contributions to "Project Miner" are welcome. Follow these steps to contribute:
 
-- **Java:** The primary programming language used for game development.
-- **LibGDX:** A flexible and powerful game development framework.
-- **[Other Technologies]:** [Details about any other technologies used in the project, like databases, external libraries, etc.]
-
-## Contributing
-
-We welcome contributions to this project! If you're interested in improving Gold Miner Classic: Gold Rush or adding new features, please read our contributing guidelines.
-
-1. **Fork the Repository**
-2. **Create a Feature Branch:** `git checkout -b new-feature`
-3. **Commit Your Changes:** `git commit -am 'Add some feature'`
-4. **Push to the Branch:** `git push origin new-feature`
-5. **Submit a Pull Request**
-
-## License
-
-[Specify the type of license under which this project is released, e.g., MIT, GPL, etc.]
-
----
-
-This outline provides a basic structure, and you should customize each section to fit your specific project. Remember to update the README file regularly as your project evolves.
+1. Fork the repository.
+2. Create a new feature branch: `git checkout -b feature/your_feature_name`.
+3. Commit your changes and push to the branch.
+4. Create a new Pull Request.
