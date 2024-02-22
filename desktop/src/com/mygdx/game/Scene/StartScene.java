@@ -1,7 +1,6 @@
 package com.mygdx.game.Scene;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -57,8 +56,7 @@ public class StartScene extends Scene{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-		
+		backgroundTexture.dispose(); // Dispose the background texture when no longer needed
 	}
 
 }

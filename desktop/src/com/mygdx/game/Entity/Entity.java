@@ -2,7 +2,7 @@ package com.mygdx.game.Entity;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+
 
 public abstract class Entity implements iMovable{
     private String tag = ""; // Default is empty, meaning no specific tag

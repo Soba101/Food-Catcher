@@ -6,10 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.utils.Array;
 
 public class EntityManager {
 	
@@ -18,7 +15,7 @@ public class EntityManager {
 	private Map<String, Entity> entityMap = new HashMap<>();
 
 	
-	public void EntityManager() {
+	public EntityManager() {
 	}
 
 	public void addEntity() {

@@ -1,6 +1,5 @@
 package com.mygdx.game.Scene;
 
-import java.util.Stack;
 
 public class SceneManager {
 	private Scene currentScene;

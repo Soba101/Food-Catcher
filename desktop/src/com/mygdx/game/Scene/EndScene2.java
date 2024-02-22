@@ -9,12 +9,10 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class EndScene2 extends Scene {
     
-    private SceneManager sceneManager;
     private Texture backgroundTexture;
     private Stage stage;
 
     public EndScene2(SceneManager sceneManager) {
-        this.sceneManager = sceneManager;
         create();
     }
 

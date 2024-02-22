@@ -4,10 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.ObjectMap;
 
-public class IOManager implements Disposable {
+public class IOManager{
 
     private static final ObjectMap<String, Sound> sounds = new ObjectMap<>();
     private static Music backgroundMusic;
@@ -68,7 +67,7 @@ public class IOManager implements Disposable {
         }
     }
 
-    public void dispose() {
+    public static void dispose() {
         // Dispose all sounds
         for (Sound sound : sounds.values()) {
             sound.dispose();
