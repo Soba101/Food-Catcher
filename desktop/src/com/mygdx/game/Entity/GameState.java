@@ -1,8 +1,13 @@
-package com.mygdx.game.Entity; // Adjust the package as needed
+package com.mygdx.game.Entity; // Package declaration
 
+/**
+ * Represents the possible states of the game.
+ * This enum is used to keep track of the current state of the game,
+ * indicating whether the game is ongoing, won, or lost under specific conditions.
+ */
 public enum GameState {
-    CONTINUE, // Game continues, no win/loss condition met
-    WIN,      // Player wins the game
-    LOSE_TIME, // Player loses due to time running out
-    LOSE_MOUSE // Player loses due to collision with the mouse
+    CONTINUE, // Indicates that the game is ongoing and no win/loss condition has been met.
+    WIN,      // Represents a state where the player wins the game.
+    LOSE_TIME, // Indicates that the player loses the game due to time running out.
+    LOSE_MOUSE // Signifies a loss due to collision with the mouse entity.
 }
