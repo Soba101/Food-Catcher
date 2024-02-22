@@ -1,7 +1,6 @@
 package com.mygdx.game.Entity;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -16,6 +15,7 @@ public class TexturedObject extends Entity {
     private boolean isAIControlled; // Flag to determine if the object is controlled by AI.
     private float width; // Width of the object.
     private float height; // Height of the object.
+    private PlayerControlManager controlManager; // The control manager for user-controlled movement.
 
     // Default constructor
     public TexturedObject() {
@@ -38,6 +38,7 @@ public class TexturedObject extends Entity {
         this.width = width; // Sets the width of the object.
         this.height = height; // Sets the height of the object.
         this.isAIControlled = isAIControlled; // Sets the control type of the object.
+        this.controlManager = new PlayerControlManager(this); // Sets the control manager for user-controlled movement.
     }
 
     // Getter for the texture.
@@ -62,6 +63,7 @@ public class TexturedObject extends Entity {
     // Method for user-controlled movement.
     @Override
     public void moveUserControlled() {
+        controlManager.handleInput(); // Handles player input.
     }
 
     /**
@@ -84,10 +86,13 @@ public class TexturedObject extends Entity {
             moveAIControlled();
         } else {
             // Movement logic for user-controlled movement using keyboard inputs.
-            if (Gdx.input.isKeyPressed(Keys.LEFT)) this.setX(this.getX() - this.getSpeed() * Gdx.graphics.getDeltaTime());
-            if (Gdx.input.isKeyPressed(Keys.RIGHT)) this.setX(this.getX() + this.getSpeed() * Gdx.graphics.getDeltaTime());
-            if (Gdx.input.isKeyPressed(Keys.DOWN)) this.setY(this.getY() - this.getSpeed() * Gdx.graphics.getDeltaTime());
-            if (Gdx.input.isKeyPressed(Keys.UP)) this.setY(this.getY() + this.getSpeed() * Gdx.graphics.getDeltaTime());
+            moveUserControlled();
+
+
+        //    if (Gdx.input.isKeyPressed(Keys.LEFT)) this.setX(this.getX() - this.getSpeed() * Gdx.graphics.getDeltaTime());
+        //    if (Gdx.input.isKeyPressed(Keys.RIGHT)) this.setX(this.getX() + this.getSpeed() * Gdx.graphics.getDeltaTime());
+        //    if (Gdx.input.isKeyPressed(Keys.DOWN)) this.setY(this.getY() - this.getSpeed() * Gdx.graphics.getDeltaTime());
+        //    if (Gdx.input.isKeyPressed(Keys.UP)) this.setY(this.getY() + this.getSpeed() * Gdx.graphics.getDeltaTime());
         }
     }
 
