@@ -1,5 +1,7 @@
 package com.mygdx.game.Entity;
 
+import com.badlogic.gdx.math.Rectangle;
+
 /**
  * The CollisionManager class is responsible for managing collisions between
  * entities in the game.
@@ -68,19 +70,11 @@ public class CollisionManager {
      * @return true if there is a collision, false otherwise
      */
     private boolean isCollision(Entity e1, Entity e2) {
-        // Calculate the distance between the centers of the two entities
-        float dx = e2.getX() - e1.getX();
-        float dy = e2.getY() - e1.getY();
-        float distance = (float) Math.sqrt(dx * dx + dy * dy);
+    	Rectangle rect1 = e1.getBounds();
+        Rectangle rect2 = e2.getBounds();
 
-        // Assuming each entity has a method getWidth() to get its diameter,
-        // and we consider entities to collide when their circular bounds intersect.
-        // You might need to adjust this if your entities are not circular or use a
-        // different method to define their bounds.
-        float radiusSum = (e1.getWidth() / 2) + (e2.getWidth() / 2);
-
-        // Check if the distance between centers is less than the sum of their radii
-        return distance < radiusSum;
+        // Use the overlaps method of Rectangle to check for collision
+        return rect1.overlaps(rect2);
     }
 
 }
