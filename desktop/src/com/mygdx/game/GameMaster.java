@@ -1,48 +1,41 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.mygdx.game.Scene.SceneManager;
-import com.mygdx.game.Scene.StartScene;
-import com.mygdx.game.Entity.IOManager;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.ScreenUtils;
+import com.mygdx.game.Managers.IOManager;
+import com.mygdx.game.Managers.SimulationManager;
+import com.mygdx.game.States.MenuState;
 
-/**
- * GameMaster is the main class of the game, extending ApplicationAdapter.
- * It sets up and manages the high-level game lifecycle, including scene management and global game settings.
- */
-public class GameMaster extends ApplicationAdapter {
-    
-    public static final int width = 1080; // Static width setting for the game window.
-    public static final int height = 720; // Static height setting for the game window.
-    private SceneManager sceneManager; // Manager for controlling different scenes in the game.
+public class GameMaster extends ApplicationAdapter{
+	
 
-    /**
-     * This method is called when the game is first created.
-     * Initializes the SceneManager and sets the initial scene of the game.
-     */
-    @Override
-    public void create() {
-        sceneManager = new SceneManager(); // Initialize SceneManager.
-        sceneManager.setScene(new StartScene(sceneManager)); // Set the StartScene as the initial scene.
+	private SimulationManager sm;
+	private SpriteBatch batch; 
 
-        IOManager.playBackgroundMusic(); // Start playing background music at the beginning of the game.
-    }
-    
-    /**
-     * This method is called periodically to render the game.
-     * Delegates the rendering process to the SceneManager.
-     */
-    @Override
-    public void render() {
-        sceneManager.render(); // Render the current scene managed by SceneManager.
-    }
-    
-    /**
-     * This method is called when the game is closing.
-     * Disposes resources used in the game to prevent memory leaks.
-     */
-    @Override
-    public void dispose() {
-        sceneManager.dispose(); // Dispose resources managed by the SceneManager.
-        IOManager.dispose(); // Dispose audio resources managed by the IOManager.
-    }
+	
+	@Override
+	public void create() 
+	{	
+		batch = new SpriteBatch();
+		sm = new SimulationManager();
+		ScreenUtils.clear(1, 0, 0, 1);
+		sm.push(new MenuState(sm));
+		
+		IOManager.getInstance().playBackgroundMusic();
+		
+	}
+	
+	
+	@Override
+	public void render () {
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		sm.update(Gdx.graphics.getDeltaTime());
+		sm.render(batch);
+	}
+	
+	@Override
+	public void dispose () { batch.dispose(); }
 }
